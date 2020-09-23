@@ -3,7 +3,7 @@ package pl.WebService.Model;
 import javax.persistence.*;
 
 @Entity
-public class employee {
+public class Employee {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -60,22 +60,22 @@ public class employee {
                 '}';
     }
 
-    public employee withID(final Long ID) {
+    public Employee withID(final Long ID) {
         this.ID = ID;
         return this;
     }
 
-    public employee withName(final String name) {
+    public Employee withName(final String name) {
         this.name = name;
         return this;
     }
 
-    public employee withSurname(final String surname) {
+    public Employee withSurname(final String surname) {
         this.surname = surname;
         return this;
     }
 
-    public employee withSalary(final Integer salary) {
+    public Employee withSalary(final Integer salary) {
         this.salary = salary;
         return this;
     }
