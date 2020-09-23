@@ -9,7 +9,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EnableAutoConfiguration
 @ComponentScan
 @EnableJpaRepositories(basePackageClasses = EmployeeRepository.class)
-@SpringBootApplication
 public class Main {
 
     public static void main(String[] args) {
