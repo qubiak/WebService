@@ -8,8 +8,6 @@ import pl.WebService.Repository.EmployeeRepository;
 import pl.WebService.Model.Employee;
 import pl.WebService.Repository.FindByNameRepository;
 
-import java.util.List;
-
 @Controller
 public class MainController {
 
@@ -23,10 +21,16 @@ public class MainController {
     public String addEmployee() {
 
         Employee task = new Employee()
-                .withName("Bartomiej1")
+                .withName("Bartomiej")
                 .withSurname("Kubiak")
                 .withSalary(4200);
         employeeRepository.save(task);
+
+        Employee task2 = new Employee()
+                .withName("Adam")
+                .withSurname("Nowak")
+                .withSalary(4200);
+        employeeRepository.save(task2);
         seeEmployee();
 
         return response.toString();
@@ -67,14 +71,11 @@ public class MainController {
     @ResponseBody
     public String searchByName() {
 
-        response.append("Task with \"Adam\" in Name:\n");
+        response.append("Task with \"Adam\" in name:\n");
 
         for (Employee i : FindByNameRepository.findByNameRepository.findByName("Adam")){
             response.append(i).append("<br>");
         }
-
-
         return response.toString();
     }
-
 }

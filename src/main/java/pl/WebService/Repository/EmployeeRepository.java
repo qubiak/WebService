@@ -6,5 +6,4 @@ import pl.WebService.Model.Employee;
 
 @Repository
 public interface EmployeeRepository extends CrudRepository<Employee, Long> {
-
 }
