@@ -16,6 +16,4 @@ public interface FindByNameRepository extends CrudRepository<Employee, Long> {
     @Query("select t from Employee t where t.name like %?1%")
     public List<Employee> getName(String name);
 
-    @Autowired
-    public FindByNameRepository findByNameRepository = null;
 }

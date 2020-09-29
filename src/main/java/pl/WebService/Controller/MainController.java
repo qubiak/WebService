@@ -14,6 +14,7 @@ public class MainController {
 
     @Autowired
     public EmployeeRepository employeeRepository;
+    @Autowired
     public FindByNameRepository findByNameRepository;
     StringBuilder response = new StringBuilder();
 
@@ -67,13 +68,13 @@ public class MainController {
         return response.toString();
     }
 
-    @RequestMapping("/searchByName")
+    @RequestMapping("/findByName")
     @ResponseBody
     public String findByName(@RequestParam("name")String name) {
     //  http://localhost:8080/findByName?name=Adam
         response.append("Task with " + name + " in name:\n");
 
-        for (Employee i : FindByNameRepository.findByNameRepository.findByName(name)){
+        for (Employee i : findByNameRepository.findByName(name)) {
             response.append(i).append("<br>");
         }
         return response.toString();
