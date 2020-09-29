@@ -1,4 +1,4 @@
-package pl.WebService;
+package pl.WebService.Repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
