@@ -3,6 +3,7 @@ package pl.WebService.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import pl.WebService.Repository.EmployeeRepository;
 import pl.WebService.Model.Employee;
@@ -56,12 +57,11 @@ public class MainController {
         return response.toString();
     }
 
-    @RequestMapping("/delateById/{IDtoDelate}")
+    @RequestMapping("/delateById")
     @ResponseBody
-    public String delateById() {
-
-        Long IDtoDelate = null;
-        employeeRepository.deleteById(IDtoDelate);
+    public String delateById(@RequestParam("id")Long id) {
+    //  http://localhost:8080/delateById?id=17
+        employeeRepository.deleteById(id);
         seeEmployee();
 
         return response.toString();
@@ -69,11 +69,11 @@ public class MainController {
 
     @RequestMapping("/searchByName")
     @ResponseBody
-    public String searchByName() {
+    public String findByName(@RequestParam("name")String name) {
+    //  http://localhost:8080/findByName?name=Adam
+        response.append("Task with " + name + " in name:\n");
 
-        response.append("Task with \"Adam\" in name:\n");
-
-        for (Employee i : FindByNameRepository.findByNameRepository.findByName("Adam")){
+        for (Employee i : FindByNameRepository.findByNameRepository.findByName(name)){
             response.append(i).append("<br>");
         }
         return response.toString();

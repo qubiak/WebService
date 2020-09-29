@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface FindByNameRepository extends CrudRepository<Employee, Long> {
 
-    public List<Employee> findByName(String Name);
+    public List<Employee> findByName(String name);
 
     @Query("select t from Employee t where t.name like %?1%")
     public List<Employee> getName(String name);
