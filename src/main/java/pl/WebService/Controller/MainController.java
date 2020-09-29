@@ -8,6 +8,8 @@ import pl.WebService.Repository.EmployeeRepository;
 import pl.WebService.Model.Employee;
 import pl.WebService.Repository.FindByNameRepository;
 
+import java.util.List;
+
 @Controller
 public class MainController {
 
@@ -57,6 +59,20 @@ public class MainController {
         Long IDtoDelate = null;
         employeeRepository.deleteById(IDtoDelate);
         seeEmployee();
+
+        return response.toString();
+    }
+
+    @RequestMapping("/searchByName")
+    @ResponseBody
+    public String searchByName() {
+
+        response.append("Task with \"Adam\" in Name:\n");
+
+        for (Employee i : FindByNameRepository.findByNameRepository.findByName("Adam")){
+            response.append(i).append("<br>");
+        }
+
 
         return response.toString();
     }
