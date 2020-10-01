@@ -16,7 +16,7 @@ public class Employee {
     private String surname;
 
     @Column
-    private Integer salary;
+    private Long salary;
 
     public void setID(Long ID) {
         this.ID = ID;
@@ -30,7 +30,7 @@ public class Employee {
         this.surname = surname;
     }
 
-    public void setSalary(Integer salary) {
+    public void setSalary(Long salary) {
         this.salary = salary;
     }
 
@@ -46,7 +46,7 @@ public class Employee {
         return surname;
     }
 
-    public Integer getSalary() {
+    public Long getSalary() {
         return salary;
     }
 
@@ -75,7 +75,7 @@ public class Employee {
         return this;
     }
 
-    public Employee withSalary(final Integer salary) {
+    public Employee withSalary(final Long salary) {
         this.salary = salary;
         return this;
     }
